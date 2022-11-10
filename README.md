@@ -1,3 +1,19 @@
-# 系统test分支
-## 大家上传文件上传在这个分支下
+# psychology-chk
 
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
