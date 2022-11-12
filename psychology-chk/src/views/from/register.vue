@@ -4,7 +4,7 @@
       <p>Register</p>
       <input type="text" placeholder="学号">
       <input type="password" placeholder="密码">
-      <input type="submit" class="btn" value="注册">
+      <input type="submit" class="btn" value="注 册">
       </div>
   </div>
 

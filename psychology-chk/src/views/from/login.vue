@@ -4,7 +4,7 @@
         <p>Login</p>
         <input type="text" placeholder="学号">
         <input type="password" placeholder="密码">
-        <input type="submit" class="btn" value="注册">
+        <input type="submit" class="btn" value="注 册" @click="toregister">
         <input type="submit" class="btn" value="登 录">
         </div>
     </div>
@@ -12,7 +12,13 @@
 </template>
 
 <script>
-
+export default {
+    methods:{
+        toregister(){
+            this.$router.push('/register')
+        }
+    }
+}
 </script>
 
 <style scoped>
