@@ -1,13 +1,13 @@
 <template>
-  <div>评论页面</div>
+  <router-view/>
 </template>
 
 <script>
 export default {
-  name: "comment"
+
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>

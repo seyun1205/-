@@ -1,20 +1,10 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+  <router-view></router-view>
 </template>
 
 
 <script>
-import login from './views/from/login.vue'
-import register from './views/from/register.vue'
-import manage from './views/behind/manage.vue'
-import test from './views/from/main/test.vue'
-import test2 from './views/from/main/test2.vue'
 
-export default ({
-  
-})
 </script>
 <style scoped>
  #app{

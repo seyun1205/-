@@ -1,13 +1,13 @@
 <template>
-  <div>评论页面</div>
+  <h1>这里写主页</h1>
 </template>
 
 <script>
 export default {
-  name: "comment"
+
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>

@@ -1,10 +1,50 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
-
 Vue.use(VueRouter)
-
 const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: () => import('../views/from/home.vue'),
+    redirect: '/index',
+    children: [
+      {
+        path: 'index',
+        name: 'index',
+        component: () => import('../views/from/Index.vue')
+      },
+      {
+        path: 'test',
+        name: 'test',
+        component: () => import('../views/from/main/test.vue')
+      },
+      {
+        path: 'test2',
+        name: 'test2',
+        component: () => import('../views/from/main/test2.vue')
+      },
+      {
+        path: 'judge',
+        name: 'judge',
+        component: () => import('../views/from/main/judge.vue')
+      },
+      {
+        path: 'comment',
+        name: 'comment',
+        component: () => import('../views/from/main/comment.vue')
+      },
+      {
+        path: 'help',
+        name: 'help',
+        component: () => import('../views/from/main/help.vue')
+      },
+      {
+        path: 'knowledge',
+        name: 'knowledge',
+        component: () => import('../views/from/main/knowledge.vue')
+      },
+    ]
+  },
   {
     path: '/login',
     name: 'login',
@@ -20,31 +60,9 @@ const routes = [
     name: 'manage',
     component: () => import('../views/behind/manage.vue')
   },
-
   {
-    path: '/',
-    name: 'index',
-    component: () => import('../views/from/index.vue'),
-     }, 
-      {
-        path: '/test',
-        name: 'test',
-        component: () => import('../views/from/main/test.vue')
-      },
-      {
-        path: '/test2',
-        name: 'test2',
-        component: () => import('../views/from/main/test2.vue')
-      },
-      {
-        path: '/judge/:grade',
-        name: 'judge',
-        component: () => import('../views/from/main/judge.vue')
-      },
-      {
-        path:'*',  //URL输入错误或者是URL匹配不到静态资源，会自动跳转到主页
-        redirect:'/'
-      }
+    path:'*',  //URL输入错误或者是URL匹配不到静态资源，会自动跳转到主页
+  }
   
 ]
 
@@ -53,5 +71,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+
 
 export default router

@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    求助页面
+  </div>
 </template>
 
 <script>

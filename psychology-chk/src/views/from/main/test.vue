@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import index from '../index.vue'
+import index from '../Index.vue'
 export default {
   components: { index },
   name: "test",
