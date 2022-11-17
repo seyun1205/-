@@ -17,8 +17,35 @@
 
     <div class="body_views">
       <div class="body_views_view">
-        views
+        <el-row class="body_views_view_show1">
+          <el-col :span="8" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 1 : 0">
+            <el-card :body-style="{ padding: '2px' }">
+              <img src="@/assets/totest.png" class="image">
+              <div style="padding: 14px;">
+                <span>前往心理测试</span>
+                <div class="bottom clearfix">
+                  <el-button type="text" class="button" @click="totest()">LetsGo >></el-button>
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+        </el-row>
+
+        <el-row class="body_views_view_show2">
+          <el-col :span="8" v-for="(o, index) in 1" :key="o" :offset="index > 0 ? 1 : 0">
+            <el-card :body-style="{ padding: '2px' }">
+              <img src="@/assets/tohelp.png" class="image">
+              <div style="padding: 14px;">
+                <span>前往心理咨询</span>
+                <div class="bottom clearfix">
+                  <el-button type="text" class="button" @click="tohelp()">LetsGo >></el-button>
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+        </el-row>
       </div>
+
       <div class="body_views_papers">
         <div class="body_views_papers_li">
           <Paper />
@@ -27,12 +54,7 @@
     </div>
 
     <div class="footer">
-<!--      <el-button-group class="footer_button">-->
-<!--        <el-button type="primary" icon="el-icon-arrow-left">上一页</el-button>-->
-<!--        <el-button type="primary">下一页<i class="el-icon-arrow-right el-icon&#45;&#45;right"></i></el-button>-->
-<!--      </el-button-group>-->
     </div>
-
   </div>
 </template>
 
@@ -48,8 +70,16 @@
         input1: '',
         input2: '',
         input3: '',
-        select: ''
+        select: '',
       }
+    },
+    methods:{
+      totest(){
+        this.$router.push('/test')
+      },
+      tohelp(){
+        this.$router.push('/help')
+      },
     }
   }
 </script>
@@ -59,6 +89,7 @@
     display: block;
   }
   .all{
+    height: 100%;
     background-image: radial-gradient(lightblue, white);
   }
 
@@ -77,7 +108,7 @@
   .search{
     padding: 0px;
     margin: 0 auto;
-    width: 60%;
+    width: 75%;
     background-color: white;
     border-radius: 8px;
     position: relative;
@@ -90,8 +121,8 @@
     box-sizing: content-box;
     background: none;
     height: 2em;
-    width: 80%;
-    margin: 10px 24px 10px;
+    width: 85%;
+    margin: 10px 10px 10px 20px;
     border-radius: 8px;
     border: 2px solid #B3C0D1;
   }
@@ -103,18 +134,64 @@
     margin: 12px 10px;
     position: absolute;
   }
+
   .body_views{
     box-sizing: border-box;
     display: flex;
-    -webkit-box-pack: center;
+    align-items: flex-start;
     justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
+
   .body_views_view{
     flex: 1;
     text-align: center;
-    padding: 0px;
-    margin: 0 auto;
+    width: 500px;
+    height: 400px;
+    position: relative;
+  }
 
+  .body_views_view_show1{
+    width: 100%;
+    margin-top:25px;
+    margin-left:200px;
+    padding: 0;
+    text-align: center;
+    position: absolute;
+  }
+  .body_views_view_show2{
+    width: 100%;
+    margin-top:100px;
+    margin-left:480px;
+    padding: 0;
+    text-align: center;
+
+  }
+
+  .bottom {
+    margin-top: 13px;
+    line-height: 18px;
+  }
+
+  .button {
+    padding: 0;
+    float: right;
+  }
+
+  .image {
+    width: 100%;
+    display: block;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+
+  .clearfix:after {
+    clear: both;
   }
 
   .body_views_papers{
