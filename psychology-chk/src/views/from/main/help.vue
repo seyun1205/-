@@ -1,11 +1,13 @@
 <template>
   <div>
-    求助页面
+    <personal />
   </div>
 </template>
 
 <script>
+import personal from '@/components/personal.vue'
 export default {
+  components:{personal},
   name: "help"
 }
 </script>

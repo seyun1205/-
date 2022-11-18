@@ -4,7 +4,7 @@
       <p>Register</p>
       <input type="text" placeholder="学号" v-model="loginFrom.username" >      
       <input type="password" placeholder="密码" v-model="loginFrom.password">
-      <input type="submit" class="btn" value="注 册" @click="register(loginFrom)">
+      <input type="submit" class="btn" value="注 册" @click="register">
       </div>
   </div>
 
@@ -21,24 +21,24 @@
         }
     },
     methods:{
-      register(formName){
-        // this.axios.post('http://localhost:3000/',this.loginFrom).then((resp) =>{
-        //         let data = resp.data;
-        //         if(data.success){
-        //             this.loginFrom={}
-        //             this.$message({
-        //             message: '注册成功！',
-        //             type: 'success',
-        //             });
-        //             this.$router.push('/index')
-        //         }
-        //     })
-        this.$refs[formName].validate((valid) => {
-          if(valid){
-            alert("注册成功！")
-          }
-          else {console.log("error");return false;}
-        })
+     async register(){
+      const { username, password} = this.loginFrom
+            const res = await this.axios({
+                url: '/api/register',
+                method: 'POST',
+                params: {
+                    username,
+                    password
+                }
+            })
+            if(res.data.msg === '注册成功！') {
+                //添加用户
+                this.$message.success('注册成功！')
+                this.$router.push('/login')
+            } else {
+                    this.$message.error('用户已存在！')
+            }
+      
       }
     }
   }

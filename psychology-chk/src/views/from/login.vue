@@ -48,6 +48,8 @@ export default {
                     this.$router.push('/index')
                 } else if(res.data.user.identify === 2) {
                     this.$message.success('欢迎您，咨询师');
+                    //咨询师页面
+                    this.$router.push('/help')
                 } else if(res.data.user.identify === 3) {
                     this.$message.success('欢迎您，管理员');
                     this.$router.push('/manage')
@@ -55,32 +57,6 @@ export default {
                     this.$message.error('登录失败')
                 }
             }
-           
-            
-            // this.axios.post('/api/login',{
-            //      params: {
-            //         username,  
-            //         password
-            //      }
-            // }).then((resp) =>{
-            //     console.log(resp);
-            //     let data = resp.data;
-            //     if(data.success){
-            //         this.loginFrom={}
-            //         this.$message({
-            //         message: '登录成功！欢迎你，'+this.loginFrom.username,
-            //         type: 'success',
-            //         });
-            //         this.$router.push('/index')
-            //     }
-            // })
-
-        //     this.$refs[formName].validate((valid) => {
-        //   if(valid){
-        //     alert("注册成功！")
-        //   }
-        //   else {console.log("error");return false;}
-        // })
        
         },
         toregister(){

@@ -1,6 +1,5 @@
 <template>
     <div class="header">
-  <!--    <h1>这里写主页</h1>-->
       <div class="header_left">
         <img src="@/assets/logo.png" class="header_left_logo">
       </div>
@@ -11,11 +10,11 @@
       </div>
       <!--  这里显示登录信息-->
       <div class="header_right">
-        <div class="header_right_login">
+        <!-- <div class="header_right_login"> -->
           <button  class="exit_btn">
-            <span @click="exitLogin">退出登录</span>
+            <span @click="exitLogin">退出</span>
           </button>
-        </div>
+        <!-- </div> -->
       </div>
     </div>
 </template>
@@ -50,11 +49,12 @@ export default {
   .header_left_logo{
     width: 300px;
     height: 70px;
+    margin-top: -12px;
   }
   .header_words{
     position: absolute;
     right: 110px;
-    top:35%;
+    top:15%;
   }
 
   .header_right{
@@ -65,8 +65,29 @@ export default {
     top:25%;
   }
   .username {
-    color: red;
+    color: rgb(30, 27, 27);
     font-size: 26px;
     font-weight: 700;
+  }
+  .exit_btn{
+    margin-left: -80%;
+    margin-top: 4px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    border: 2px solid #B3C0D1;
+    transition-duration: 0.4s
+  }
+  .exit_btn:hover{
+    background-color: #f44336;
+    color: white;
+  }
+  .exit_btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
   }
 </style>

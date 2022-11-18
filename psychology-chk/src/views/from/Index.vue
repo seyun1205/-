@@ -55,31 +55,6 @@ import Carsoual from '@/components/Carsoual.vue'
 
 <style>
 
-  
-  .exit_btn{
-    margin-left: 200px;
-    border: none;
-    padding: 10px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    border-radius: 4px;
-    border: 2px solid #B3C0D1;
-    
-    transition-duration: 0.4s
-  }
-  .exit_btn:hover{
-    background-color: #f44336;
-    color: white;
-  }
-  .exit_btn span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-
   .body_show_pictures{
     margin: 0 auto;
     padding:0;

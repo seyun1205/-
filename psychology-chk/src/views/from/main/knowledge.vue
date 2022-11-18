@@ -92,7 +92,6 @@
     height: 100%;
     background-image: radial-gradient(lightblue, white);
   }
-
   .body_title{
     margin: 0 auto;
     box-sizing: border-box;
@@ -134,7 +133,6 @@
     margin: 12px 10px;
     position: absolute;
   }
-
   .body_views{
     box-sizing: border-box;
     display: flex;
@@ -143,7 +141,6 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
-
   .body_views_view{
     flex: 1;
     text-align: center;
@@ -151,7 +148,6 @@
     height: 400px;
     position: relative;
   }
-
   .body_views_view_show1{
     width: 100%;
     margin-top:25px;
@@ -166,40 +162,32 @@
     margin-left:480px;
     padding: 0;
     text-align: center;
-
   }
-
   .bottom {
     margin-top: 13px;
     line-height: 18px;
   }
-
   .button {
     padding: 0;
     float: right;
   }
-
   .image {
     width: 100%;
     display: block;
   }
-
   .clearfix:before,
   .clearfix:after {
     display: table;
     content: "";
   }
-
   .clearfix:after {
     clear: both;
   }
-
   .body_views_papers{
     flex: 1;
     text-align: center;
     font-size: 14px;
   }
-
   .footer{
     margin-bottom: 10px;
     padding: 0;

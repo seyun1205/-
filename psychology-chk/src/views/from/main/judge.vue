@@ -69,14 +69,14 @@ export default {
 </script>
 
 <style scoped>
- *{
+  *{
     margin:0;
     padding: 0;
   }
   .header{
     width: 100%;
-    height: 40px;
-    background: #99ccff;
+    height: 50px;
+    background: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
   }
   .header-l{
@@ -89,26 +89,29 @@ export default {
     padding: 5px;
   }
   img{
-    width: 100%;
+    background-size: cover;
     opacity: 0.5;
     position: fixed;
-    height: 580px;
   }
   .banner{
-    position: absolute;
+    /* position:absolute;
     bottom: 500px;
-    left: 180px;
+    left: 180px; */
+    margin-left: 200px;
+    margin-top: 30px;
   }
   .banner-1{
-    position: absolute;
+    /* position: absolute;
     bottom: 430px;
-    left:520px; 
+    left:520px;  */
+    margin-top: 25px;
+    margin-left: 530px;
   }
   .banner-2{
     /* position: absolute;
     bottom: 100px;
     left:80px;  */
-    margin-top:155px;
+     margin-top:30px;
      margin-right: 100px;
      margin-left: 100px;
   }
