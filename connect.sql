@@ -11,7 +11,7 @@
  Target Server Version : 50612
  File Encoding         : 65001
 
- Date: 17/11/2022 21:09:26
+ Date: 18/11/2022 23:00:17
 */
 
 SET NAMES utf8mb4;
@@ -122,15 +122,14 @@ CREATE TABLE `user`  (
   `username` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `password` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `identify` int(5) DEFAULT NULL,
-  `id` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`username`, `password`) USING BTREE
+  PRIMARY KEY (`username`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('admin', '123456', 3, 1);
-INSERT INTO `user` VALUES ('ddd', '123', 1, 2);
-INSERT INTO `user` VALUES ('pro', '123', 2, 3);
+INSERT INTO `user` VALUES ('admin', '123456', 3);
+INSERT INTO `user` VALUES ('ddd', '123', 1);
+INSERT INTO `user` VALUES ('大宝', '123456', 2);
 
 SET FOREIGN_KEY_CHECKS = 1;
