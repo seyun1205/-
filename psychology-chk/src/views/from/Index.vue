@@ -129,11 +129,11 @@ import separator from '@/components/separator.vue'
   }
 
   .body_choose {
-    margin:15px;
-    padding: 0;
+    width: 100%;
+    margin-top:20px;
+    padding:10px;
     text-align: center;
     vertical-align: middle;
-
   }
 
   .body_choose_test{
