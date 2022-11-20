@@ -11,7 +11,7 @@
  Target Server Version : 50612
  File Encoding         : 65001
 
- Date: 18/11/2022 23:00:17
+ Date: 21/11/2022 00:18:31
 */
 
 SET NAMES utf8mb4;
@@ -22,17 +22,18 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment`  (
-  `username` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `nickname` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `username` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `nickname` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `content` char(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `ctime` datetime(0) DEFAULT NULL,
-  PRIMARY KEY (`username`) USING BTREE
+  PRIMARY KEY (`nickname`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of comment
 -- ----------------------------
-INSERT INTO `comment` VALUES ('ddd', '小宇', '好饿好饿', '2022-11-11 16:29:23');
+INSERT INTO `comment` VALUES ('ddd', 'dasdsadsads', '111111111111111111111111', '2022-11-19 00:00:00');
+INSERT INTO `comment` VALUES ('ddd', '小宇', '好饿好饿', '2022-11-11 16:29:22');
 
 -- ----------------------------
 -- Table structure for counselor_records
@@ -129,7 +130,7 @@ CREATE TABLE `user`  (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('admin', '123456', 3);
-INSERT INTO `user` VALUES ('ddd', '123', 1);
+INSERT INTO `user` VALUES ('dddd', '123456', 1);
 INSERT INTO `user` VALUES ('大宝', '123456', 2);
 
 SET FOREIGN_KEY_CHECKS = 1;
