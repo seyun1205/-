@@ -9,6 +9,7 @@
           <el-option class="search_codes_code" label="人" value="人"></el-option>
         </el-select>
         <input class="search_input" type="text" v-model="searchStr" placeholder="请输入想要查看的心理知识" />
+        <el-button icon="el-icon-search" circle @click="results"> </el-button>
       </div>
     </div>
 
@@ -48,10 +49,10 @@
       <div class="body_views_papers">
         <div class="body_views_papers_li">
           <ul >
-            <li class="item" v-for="item in results" :key="item">
+            <li class="item" v-for="(item,index) in knowledgeFrom" :key="index">
               <div class="desc">
-                <el-collapse  v-model="activeNames" @change="handleChange">
-                  <el-collapse-item class="desc_title" :title="item.content_title" name="1" style="text-align: left;font-size: 18px">
+                <el-collapse  @change="handleChange">
+                  <el-collapse-item class="desc_title" :title="item.content_title"  style="text-align: left;font-size: 18px">
                     <span class="desc_show">
                       {{ item.content }}
                     </span>
@@ -59,28 +60,7 @@
                 </el-collapse>
               </div>
             </li>
-            <li class="item" v-for="item in results" :key="item">
-              <div class="desc">
-                <el-collapse  v-model="activeNames" @change="handleChange">
-                  <el-collapse-item class="desc_title" :title="item.content_title" name="1" style="text-align: left;font-size: 18px">
-                    <span class="desc_show">
-                      {{ item.content }}
-                    </span>
-                  </el-collapse-item>
-                </el-collapse>
-              </div>
-            </li>
-            <li class="item" v-for="item in results" :key="item">
-              <div class="desc">
-                <el-collapse  v-model="activeNames" @change="handleChange">
-                  <el-collapse-item class="desc_title" :title="item.content_title" name="1" style="text-align: left;font-size: 18px">
-                    <span class="desc_show">
-                      {{ item.content }}
-                    </span>
-                  </el-collapse-item>
-                </el-collapse>
-              </div>
-            </li>
+            
           </ul>
         </div>
       </div>
@@ -93,41 +73,29 @@ export default {
   name: "knowledge",
   data() {
     return {
-      input1: '123',
-      input2: '',
-      input3: '',
-      select: '',
+      username: localStorage.getItem('username') ?? '',
+      password: localStorage.getItem('password') ?? '',
+      id: localStorage.getItem('id') ?? '',
+      identify: localStorage.getItem('identify') ?? '',
+
       searchStr:'',  //搜索关键词
-      activeNames: ['“三明治效应”','2','3'],
-      knowledgeFrom: [{
-        kno: '01',
-        content_title: '“三明治效应”',
-        content: '在批评心理学中，人们把批评的内容夹在两个表扬之中从而使受批评者愉快地接受批评的现象，称之为三明治效应。',
-      },
-        {
-        kno: '02',
-        content_title: '“效应”',
-        content: '称之为三明治效应。',
-      },
-      ]
+      knowledgeFrom: [ ]
+     
     }
   },
-  computed:{
-    results(){    //关键词显示
-      var knowledgeFrom=this.knowledgeFrom;
-      if(this.searchStr==''){
-        return knowledgeFrom;
-      }
-      var searchStr=this.searchStr.trim().toLocaleLowerCase();
-      knowledgeFrom=knowledgeFrom.filter(function (ele) {
-        if(ele.content.toLocaleLowerCase().indexOf(searchStr)!=-1){
-          return ele;
-        }
-      });
-      return knowledgeFrom;
-    }
+  created(){
+    this.getknowledgelist()
   },
   methods: {
+    getknowledgelist(){
+      this.axios({
+                        url: '/api/knowledge/selectAll',
+                        method: 'get',
+                    }).then(res =>{
+                        this.knowledgeFrom = res.data
+                    })
+    },
+
     handleChange(val) {
       console.log(val);
     },
@@ -135,8 +103,51 @@ export default {
       this.$router.push('/test')
     },
     tohelp(){
-      this.$router.push('/help')
+      let userInfo = {
+          id: id,
+          username: username,
+          password: password,
+          identify: identify
+        }
+        window.open('http://localhost:8087/home?userInfo='+JSON.stringify(userInfo))
     },
+
+    async results(){    //关键词显示
+      // var knowledgeFrom=this.knowledgeFrom;
+      // if(this.searchStr==''){
+      //   return knowledgeFrom;
+      // }
+      // var searchStr=this.searchStr.trim().toLocaleLowerCase();
+      // knowledgeFrom=knowledgeFrom.filter(function (ele) {
+      //   if(ele.content.toLocaleLowerCase().indexOf(searchStr)!=-1){
+      //     return ele;
+      //   }
+      // });
+      // return knowledgeFrom;
+
+      
+      if(this.searchStr==='' || this.searchStr===null || this.searchStr===undefined){
+      await  this.axios({
+                        url: '/api/knowledge/selectAll',
+                        method: 'get',
+                    }).then(res =>{
+                        this.knowledgeFrom = res.data
+                    })
+      }
+      else{
+        const searchStr= this.searchStr
+        await  this.axios({
+                        url: '/api/knowledge/getKnowledgeByContent',
+                        method: 'get',
+                        params:{
+                          searchStr
+                        }
+                    }).then(res =>{
+                        this.knowledgeFrom = res.data
+                    })
+      }
+      
+    }
 
   }
 }
@@ -180,7 +191,7 @@ div{
   box-sizing: content-box;
   background: none;
   height: 2em;
-  width: 80%;
+  width: 70%;
   margin: 10px 10px 10px 150px;
   border-radius: 8px;
   border: 2px solid #B3C0D1;

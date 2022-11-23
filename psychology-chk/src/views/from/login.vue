@@ -46,11 +46,7 @@ export default {
                 // 普通用户
                     this.$message.success('登录成功');
                     this.$router.push('/index')
-                } else if(res.data.user.identify === 2) {
-                    this.$message.success('欢迎您，咨询师');
-                    //咨询师页面
-                    this.$router.push('/help')
-                } else if(res.data.user.identify === 3) {
+                }  else if(res.data.user.identify === 3) {
                     this.$message.success('欢迎您，管理员');
                     this.$router.push('/manage')
                 } else {

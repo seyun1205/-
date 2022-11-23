@@ -76,6 +76,14 @@ import personal from '@/components/personal.vue'
 import Carsoual from '@/components/Carsoual.vue'
 import separator from '@/components/separator.vue'
   export default {
+    data() {
+    return {
+      username: localStorage.getItem('username') ?? '',
+      password: localStorage.getItem('password') ?? '',
+      id: localStorage.getItem('id') ?? '',
+      identify: localStorage.getItem('identify') ?? ''
+    }
+  },
     components: {
       personal,
       Carsoual,
@@ -89,7 +97,13 @@ import separator from '@/components/separator.vue'
         this.$router.push('/knowledge')
       },
       tohelp(){
-        this.$router.push('/help')
+        let userInfo = {
+          id: id,
+          username: username,
+          password: password,
+          identify: identify
+        }
+        window.open('http://localhost:8087/home?userInfo='+JSON.stringify(userInfo))
       },
       tocomment(){
         this.$router.push('/comment')

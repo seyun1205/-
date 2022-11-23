@@ -1,15 +1,15 @@
 package front.all.pojo;
 
-public class Knowlege {
-    private String kno;
+public class Knowledge {
+    private int kno;
     private String content_title;
     private String content;
 
-    public String getKno() {
+    public int getKno() {
         return kno;
     }
 
-    public void setKno(String kno) {
+    public void setKno(int kno) {
         this.kno = kno;
     }
 

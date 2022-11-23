@@ -23,7 +23,10 @@ export default {
   name: "personal",
   data() {
     return {
-      username: localStorage.getItem('username') ?? ''
+      username: localStorage.getItem('username') ?? '',
+      password: localStorage.getItem('password') ?? '',
+      id: localStorage.getItem('id') ?? '',
+      identify: localStorage.getItem('identify') ?? ''
     }
   },
   methods: {
